@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style type="text/css">
+p{font-family:monospace;white-space:pre-wrap}
+</style>
+<title>readme.html</title>
+</head>
+<body>
+<p>
+_____________
+how to start
+¯¯¯¯¯¯¯¯¯¯¯¯¯
+First, set parameters in parameter section of main() in hex_a_hop.cpp.
+
+There is no huge reason to look at the code in .h files. If you ARE curious, I've done my best to make the code readable, so feel free to look at it. Due to the complex nature of the program and my less-than-perfect ability to make the code readable, you may still have some trouble!
+
+By the way, I use .h for no good reason. They are not header files.
+
+
+Then, to compile and run in terminal on Linux or macOS, you can do...
+  g++ -O hex_a_hop.cpp
+  ./a.out
+
+To save the results to a file, run via something like...
+  ./a.out |tee -a 60.log
+
+For a bit more speed, compile with...
+  g++ -O3 -fwhole-program -march=native -fno-stack-protector hex_a_hop.cpp
+On Linux, if you don't mind worrying about first having large downloads and making a free account, you can also use Intel System Studio's C++ compiler via...
+  icpc -xHost hex_a_hop.cpp
+
+
+Note that macOS actually runs clang++ when you run g++, so, on macOS, I installed MacPorts, then did
+  sudo port install gcc7
+and I can now call g++-mp-7 to run the real g++. Even then, macOS mysteriously takes three times more time to run the code! On macOS, I can significantly speed it up by running Linux in VirtualBox, or, better yet, using a bootable Ubuntu USB to avoid macOS altogether...
+  https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-macos
+This strange behavior seems to have something to do with memory speed rather than CPU speed.
+
+
+_____________
+my goal
+¯¯¯¯¯¯¯¯¯¯¯¯¯
+I thought that using a computer to search for optimal solutions to the awesome open-source game called Hex-a-hop was a cool idea, so I wrote some code to do just that. The code worked great on over 75% of the levels, and their optimal solutions are provided in hex_a_hop.cpp. However, the brute force strategy I used leads to solution times that grow exponentially as levels get more complex. Many levels run in seconds, while some could take many millennia. I've done my best to speed things up, but, after trying to run all levels, many showed no progress. Since I only want algorithms that guarantee that the returned solution is optimal, there is not much I can do to fix this.
+
+Currently, I use minihop() and minilaser() to handle regions of a level map where walking around does not change the level (typically this is when walking on white tiles). This approach prevents equivalent paths through these regions from growing exponentially. My next goal will be to do the same thing but with regions of green and blue tiles. If I can get this to work without using up too much RAM, my final goal will be to make a code that can do both!
+
+
+_____________
+more info
+¯¯¯¯¯¯¯¯¯¯¯¯¯
+ • Release date of this version: 2019
+ • If you find bugs or have questions, leave me a message at www.BradleyKnockel.com
+ • This code is under the BSD license, so you can mostly do what you want with it (just make sure you give credit to me, Bradley Knockel)
+ • I have included the file save1.dat to be used to quickly allow you to play all Hex-a-hop levels (just replace the old save1.dat !)
+
+Many thanks to...
+ • http://hexahop.sourceforge.net/
+ • https://replit.com/languages/cpp
+
+
+</p>
+</body>
+</html>
