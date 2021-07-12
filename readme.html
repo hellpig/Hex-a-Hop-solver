@@ -44,7 +44,9 @@ my goal
 ¯¯¯¯¯¯¯¯¯¯¯¯¯
 I thought that using a computer to search for optimal solutions to the awesome open-source game called Hex-a-hop was a cool idea, so I wrote some code to do just that. The code worked great on over 75% of the levels, and their optimal solutions are provided in hex_a_hop.cpp. However, the brute force strategy I used leads to solution times that grow exponentially as levels get more complex. Many levels run in seconds, while some could take many millennia. I've done my best to speed things up, but, after trying to run all levels, many showed no progress. Since I only want algorithms that guarantee that the returned solution is optimal, there is not much I can do to fix this.
 
-Currently, I use minihop() and minilaser() to handle regions of a level map where walking around does not change the level (typically this is when walking on white tiles). This approach prevents equivalent paths through these regions from growing exponentially. My next goal will be to do the same thing but with regions of green and blue tiles. If I can get this to work without using up too much RAM, my final goal will be to make a code that can do both!
+Currently, I use minihop() and minilaser() to handle regions of a level map where walking around does not change the level (typically this is when walking on white tiles). This approach prevents equivalent paths through these regions from growing exponentially. My next goal will be to do a similar thing but with regions of green and blue tiles in a function called minihop2(). If I can get this to work without using up too much RAM, my final goal will be to make a code that can do both!
+
+However, I have not found the motivation in the past several years (due to diminishing returns), so I don't think minihop2() will happen, but I have provided the unfinished code here in a folder. I put six forward slashes in the code wherever code is still needed describing what still needs to be coded. I'm sure other things will need to be done or fixed once the first draft of the code is finished then tested!
 
 
 _____________
